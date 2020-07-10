@@ -40,6 +40,24 @@ function checkWinner(){
         } else if (allb[arr[z][0]].innerHTML == 'O' && allb[arr[z][1]].innerHTML == 'O' && allb[arr[z][2]].innerHTML == 'O'){
             alert('Победили нолики');
             setTimeout(() => location.reload(), 1000);
+        } else if (allb[arr[z][0]].innerHTML == 'X' && allb[arr[z][1]].innerHTML == 'O' && allb[arr[z][2]].innerHTML == 'X'){
+            alert('Ничья');
+            setTimeout(() => location.reload(), 1000);
+        } else if (allb[arr[z][0]].innerHTML == 'X' && allb[arr[z][1]].innerHTML == 'X' && allb[arr[z][2]].innerHTML == 'O'){
+            alert('Ничья');
+            setTimeout(() => location.reload(), 1000);
+        } else if (allb[arr[z][0]].innerHTML == 'X' && allb[arr[z][1]].innerHTML == 'O' && allb[arr[z][2]].innerHTML == 'O'){
+            alert('Ничья');
+            setTimeout(() => location.reload(), 1000);
+        } else if (allb[arr[z][0]].innerHTML == 'O' && allb[arr[z][1]].innerHTML == 'O' && allb[arr[z][2]].innerHTML == 'X'){
+            alert('Ничья');
+            setTimeout(() => location.reload(), 1000);
+        } else if (allb[arr[z][0]].innerHTML == 'O' && allb[arr[z][1]].innerHTML == 'X' && allb[arr[z][2]].innerHTML == 'O'){
+            alert('Ничья');
+            setTimeout(() => location.reload(), 1000);
+        } else if (allb[arr[z][0]].innerHTML == 'O' && allb[arr[z][1]].innerHTML == 'X' && allb[arr[z][2]].innerHTML == 'X'){
+            alert('Ничья');
+            setTimeout(() => location.reload(), 1000);
         } 
     }
 }
