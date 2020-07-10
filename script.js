@@ -35,28 +35,28 @@ function checkWinner(){
 
     for (var z = 0; z < arr.length; z++){
         if (allb[arr[z][0]].innerHTML == 'X' && allb[arr[z][1]].innerHTML == 'X' && allb[arr[z][2]].innerHTML == 'X'){
-            alert('Победили крестики');
+            setTimeout(() => alert('Победили крестики'), 0);
             setTimeout(() => location.reload(), 1000);
         } else if (allb[arr[z][0]].innerHTML == 'O' && allb[arr[z][1]].innerHTML == 'O' && allb[arr[z][2]].innerHTML == 'O'){
-            alert('Победили нолики');
+            setTimeout(() => alert('Победили нолики'), 0);
             setTimeout(() => location.reload(), 1000);
         } else if (allb[arr[z][0]].innerHTML == 'X' && allb[arr[z][1]].innerHTML == 'O' && allb[arr[z][2]].innerHTML == 'X'){
-            alert('Ничья');
+            setTimeout(() => alert('Ничья'), 0);
             setTimeout(() => location.reload(), 1000);
         } else if (allb[arr[z][0]].innerHTML == 'X' && allb[arr[z][1]].innerHTML == 'X' && allb[arr[z][2]].innerHTML == 'O'){
-            alert('Ничья');
+            setTimeout(() => alert('Ничья'), 0);
             setTimeout(() => location.reload(), 1000);
         } else if (allb[arr[z][0]].innerHTML == 'X' && allb[arr[z][1]].innerHTML == 'O' && allb[arr[z][2]].innerHTML == 'O'){
-            alert('Ничья');
+            setTimeout(() => alert('Ничья'), 0);
             setTimeout(() => location.reload(), 1000);
         } else if (allb[arr[z][0]].innerHTML == 'O' && allb[arr[z][1]].innerHTML == 'O' && allb[arr[z][2]].innerHTML == 'X'){
-            alert('Ничья');
+            setTimeout(() => alert('Ничья'), 0);
             setTimeout(() => location.reload(), 1000);
         } else if (allb[arr[z][0]].innerHTML == 'O' && allb[arr[z][1]].innerHTML == 'X' && allb[arr[z][2]].innerHTML == 'O'){
-            alert('Ничья');
+            setTimeout(() => alert('Ничья'), 0);
             setTimeout(() => location.reload(), 1000);
         } else if (allb[arr[z][0]].innerHTML == 'O' && allb[arr[z][1]].innerHTML == 'X' && allb[arr[z][2]].innerHTML == 'X'){
-            alert('Ничья');
+            setTimeout(() => alert('Ничья'), 0);
             setTimeout(() => location.reload(), 1000);
         } 
     }
