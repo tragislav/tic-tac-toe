@@ -1,4 +1,4 @@
-for(var i = 0; i < 9; i++){
+for (var i = 0; i < 9; i++){
     document.getElementById('game').innerHTML+='<div class = "block"></div>';
 }
 
@@ -6,14 +6,12 @@ var hod = 0;
 
 document.getElementById('game').addEventListener('click', function(event){
     console.log('click');
-    if (event.target.className == 'block'){
-        if (hod%2 == 0){
+    if (event.target.className === 'block'){
+        if (hod%2 === 0){
             event.target.innerHTML = 'X';
-            //alert('Ход второго игрока');
         }
         else {
             event.target.innerHTML = 'O';
-            //alert('Ход первого игрока');
         }
         hod++;
         checkWinner();
@@ -22,58 +20,30 @@ document.getElementById('game').addEventListener('click', function(event){
 
 function checkWinner(){
     var allb = document.getElementsByClassName('block');
-    
-    //КРЕСТИКИ
-    if (allb[0].innerHTML == 'X' && allb[1].innerHTML == 'X' && allb[2].innerHTML == 'X'){
-        alert('Победили крестики')
-    }
-    if (allb[3].innerHTML == 'X' && allb[4].innerHTML == 'X' && allb[5].innerHTML == 'X'){
-        alert('Победили крестики')
-    }
-    if (allb[6].innerHTML == 'X' && allb[7].innerHTML == 'X' && allb[8].innerHTML == 'X'){
-        alert('Победили крестики')
-    }
-    if (allb[0].innerHTML == 'X' && allb[4].innerHTML == 'X' && allb[8].innerHTML == 'X'){
-        alert('Победили крестики')
-    }
-    if (allb[2].innerHTML == 'X' && allb[4].innerHTML == 'X' && allb[6].innerHTML == 'X'){
-        alert('Победили крестики')
-    }
-    if (allb[0].innerHTML == 'X' && allb[3].innerHTML == 'X' && allb[6].innerHTML == 'X'){
-        alert('Победили крестики')
-    }
-    if (allb[1].innerHTML == 'X' && allb[4].innerHTML == 'X' && allb[7].innerHTML == 'X'){
-        alert('Победили крестики')
-    }
-    if (allb[2].innerHTML == 'X' && allb[5].innerHTML == 'X' && allb[8].innerHTML == 'X'){
-        alert('Победили крестики')
-    }
+    var arr = [
+        [0, 1, 2],
+        [3, 4, 5],
+        [6, 7, 8],
 
-    //НОЛИКИ
-    if (allb[0].innerHTML == 'O' && allb[1].innerHTML == 'O' && allb[2].innerHTML == 'O'){
-        alert('Победили нолики')
+        [0, 3, 6],
+        [1, 4, 7],
+        [2, 5, 8],
+
+        [0, 4, 8],
+        [2, 4, 6],
+    ]
+
+    for (var z = 0; z < arr.length; z++){
+        if (allb[arr[z][0]].innerHTML == 'X' && allb[arr[z][1]].innerHTML == 'X' && allb[arr[z][2]].innerHTML == 'X'){
+            alert('Победили крестики');
+            setTimeout(() => location.reload(), 1000);
+        } else if (allb[arr[z][0]].innerHTML == 'O' && allb[arr[z][1]].innerHTML == 'O' && allb[arr[z][2]].innerHTML == 'O'){
+            alert('Победили нолики');
+            setTimeout(() => location.reload(), 1000);
+        } 
     }
-    if (allb[3].innerHTML == 'O' && allb[4].innerHTML == 'O' && allb[5].innerHTML == 'O'){
-        alert('Победили нолики')
-    }
-    if (allb[6].innerHTML == 'O' && allb[7].innerHTML == 'O' && allb[8].innerHTML == 'O'){
-        alert('Победили нолики')
-    }
-    if (allb[0].innerHTML == 'O' && allb[4].innerHTML == 'O' && allb[8].innerHTML == 'O'){
-        alert('Победили нолики')
-    }
-    if (allb[2].innerHTML == 'O' && allb[4].innerHTML == 'O' && allb[6].innerHTML == 'O'){
-        alert('Победили нолики')
-    }
-    if (allb[0].innerHTML == 'O' && allb[3].innerHTML == 'O' && allb[6].innerHTML == 'O'){
-        alert('Победили нолики')
-    }
-    if (allb[1].innerHTML == 'O' && allb[4].innerHTML == 'O' && allb[7].innerHTML == 'O'){
-        alert('Победили нолики')
-    }
-    if (allb[2].innerHTML == 'O' && allb[5].innerHTML == 'O' && allb[8].innerHTML == 'O'){
-        alert('Победили нолики')
-    }      
 }
+
+
 
 
