@@ -1,20 +1,15 @@
-#game {
-    width: 300px;
-    height: 300px;
-    background: lightpink;
-    margin: auto;
+body{
+    background:plum;
 }
 
-.block {
-    width: 100px;
-    height: 100px;
-    float: left;
-    border: 1px solid orchid;
-    box-sizing: border-box;
-    line-height: 100px;
+#center{
+    margin:4% auto;
+    border-collapse: collapse;
+}
+
+#top {
+    margin: 1% auto;
     text-align: center;
-    font-size: 80px;
-    color: peru;
 }
 
 .tit {
@@ -22,10 +17,28 @@
     color: crimson;
 }
 
+.z {
+    border:1px solid #565252;
+    width:70px;
+    height:70px;
+    cursor: default;
+    color: black;
+    font-size: 40px;
+    text-align: center;
+    background-color: orchid;
+}
+
+#myTable {
+    border:2px solid #6d6464;
+    margin:0 auto;
+    text-align:center;
+    border-collapse: collapse;
+}
+
 #reset-game {
     display: block;
     margin: 0 auto;
     border: 1px solid black;
-    background-color: lightpink;
+    background-color: orchid;
     padding: 10px 20px;
 }

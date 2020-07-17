@@ -1,35 +1,32 @@
-let game = document.getElementById('game');
-let block = document.getElementsByClassName('block');
+let center=document.getElementById('center');
 let del = document.getElementById('reset-game');
 
 let player = "X";
-let arr = [
-    [0, 1, 2],
-    [3, 4, 5],
-    [6, 7, 8],
+let table = '';
+let rows = 10;
+let size = 3;
 
-    [0, 3, 6],
-    [1, 4, 7],
-    [2, 5, 8],
+function createTab(){
+    for (let z=1; z<=size; z++) {
+        table+='<tr >';
+            for (let x=1; x<=size; x++){
+                table+='<td class="z"' + x + '></td>'
+            }
+            table+='</tr>';
+       }
+        center.innerHTML=('<table id="myTable">'+table+'<table>')    
+   }
 
-    [0, 4, 8],
-    [2, 4, 6],
-]
+createTab()
 
-del.addEventListener('click', delClick);
-
-for (var i = 0; i < 9; i++){
-    game.innerHTML+="<div class = 'block' pos = " + i +"></div>";
+let td=document.querySelectorAll('td');
+for(let i = 0; i < td.length; i++){
+    td[i].addEventListener('click', click1);
 }
+let e;
+del.addEventListener('click', delClick); 
 
-for (let i = 0; i< block.length; i++) {
-    block[i].addEventListener('click', bClick);
-}
-
-function bClick() {
-    
-    var data = [];
-    
+function click1(){
     if(!this.innerHTML) {
         this.innerHTML = player;
     }else {
@@ -37,44 +34,104 @@ function bClick() {
         return;
     }
 
-    for(let i in block){
-        if(block[i].innerHTML == player){
-            data.push(parseInt(block[i].getAttribute('pos')));
-        }
-    }
-
-    if(checkWinner(data)) {
+    if(checkWinnerX()){
         restart("Выграл: " + player);
-    }else {
+    }else if(checkWinnerO()){
+        restart("Выграл: " + player);
+    }
+    else {
         let draw = true;
-        for(let i in block) {
-            if(block[i].innerHTML == '') draw = false;
+        for(let i in td) {
+            if(td[i].innerHTML == '') draw = false;
         }
         if(draw) {
-            restart("Ничья")
+            restart("Ничья");
         }
     }
 
-    player = player == "X" ? "O" : "X";   
+    player = player == "X" ? "O" : "X"; 
 }
 
-function checkWinner(data){
-    for (let i in arr) {
-        let win = true;
-        for (let j in arr[i]) {
-            let id = arr[i][j];
-            let index = data.indexOf(id);
+function checkWinnerX(){
+    let table = document.getElementById( "myTable" );
+    let flag = true; 
+	for ( let k = 0; k<size; k++){
+	
+		for ( let i = 0; i < size; i++ ) {
+			    for ( let j = 0; j < size; j++ ) {
+                    if (table.rows[i].cells[j].innerHTML !="X" ){flag = false; }
+	            }
+	        if (flag === true){return true;}
+	        flag = true;
+	    }
+	
+        for ( let i = 0; i < size; i++ ) {
+			for ( let j = 0; j < size; j++ ) {
+                if (table.rows[j].cells[i].innerHTML !="X" ){flag = false; }
+	        }
+	        if (flag === true){return true;}
+	        flag = true;
+	    }
+	
+	    for ( let i = 0; i < size;  ) {
+			for ( let j = 0; j < size; j++ ) {
+                if (table.rows[i].cells[j].innerHTML !="X" ){flag = false; }
+                i++;
+	        }
+	        if (flag === true){return true;}
+	        flag = true;
+	    }
+	
+	    for ( let i = size-1; i > 0;) {
+			for ( let j = 0; j < size; j++ ) {
+                if (table.rows[i].cells[j].innerHTML !="X" ){flag = false; }
+                i--;
+	        }
+	        if (flag === true){return true;}
+	        flag = true;
+	    }
+	}
+}
 
-            if (index == -1) {
-                win = false;
-            }
-        }
-
-        if (win) {
-            return true;
-        }
-    }
-    return false;
+function checkWinnerO(){
+    let table = document.getElementById( "myTable" );
+    let flag = true; 
+	for ( let k = 0; k<size; k++){
+	
+		for ( let i = 0; i < size; i++ ) {
+			    for ( let j = 0; j < size; j++ ) {
+                    if (table.rows[i].cells[j].innerHTML !="O" ){flag = false; }
+	            }
+	        if (flag === true){return true;}
+	        flag = true;
+	    }
+	
+        for ( let i = 0; i < size; i++ ) {
+			for ( let j = 0; j < size; j++ ) {
+                if (table.rows[j].cells[i].innerHTML !="O" ){flag = false; }
+	        }
+	        if (flag === true){return true;}
+	        flag = true;
+	    }
+	
+	    for ( let i = 0; i < size;  ) {
+			for ( let j = 0; j < size; j++ ) {
+                if (table.rows[i].cells[j].innerHTML !="O" ){flag = false; }
+                i++;
+	        }
+	        if (flag === true){return true;}
+	        flag = true;
+	    }
+	
+	    for ( let i = size-1; i > 0;) {
+			for ( let j = 0; j < size; j++ ) {
+                if (table.rows[i].cells[j].innerHTML !="O" ){flag = false; }
+                i--;
+	        }
+	        if (flag === true){return true;}
+	        flag = true;
+	    }
+	}
 }
 
 function restart(text) {
@@ -84,9 +141,7 @@ function restart(text) {
 }
 
 function delClick() {
-    for(let i = 0; i < block.length; i++) {
-        block[i].innerHTML = '';
+    for(let i = 0; i < td.length; i++) {
+        td[i].innerHTML = '';
     }
 }
-
-
