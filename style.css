@@ -1,9 +1,9 @@
-body{
-    background:plum;
+body {
+    background: plum;
 }
 
-#center{
-    margin:4% auto;
+#center {
+    margin: 4% auto;
     border-collapse: collapse;
 }
 
@@ -18,9 +18,9 @@ body{
 }
 
 .z {
-    border:1px solid #565252;
-    width:70px;
-    height:70px;
+    border: 1px solid #565252;
+    width: 70px;
+    height: 70px;
     cursor: default;
     color: black;
     font-size: 40px;
@@ -29,9 +29,9 @@ body{
 }
 
 #myTable {
-    border:2px solid #6d6464;
-    margin:0 auto;
-    text-align:center;
+    border: 2px solid #6d6464;
+    margin: 0 auto;
+    text-align: center;
     border-collapse: collapse;
 }
 
