@@ -1,13 +1,13 @@
-let center = document.getElementById('center');
-let del = document.getElementById('reset-game');
+let center = document.querySelector('#center');
+let del = document.querySelector('#reset-game');
 
 let player = 'X';
 let table = '';
 let rows = 10;
-let size = 3;
+let size = +prompt('Введите размер поля');
 
 function createTab() {
-    for (let z = 1; z <= size; z++) {
+    for (let i = 1; i <= size; i++) {
         table += '<tr >';
         for (let x = 1; x <= size; x++) {
             table += '<td class="z"' + x + '></td>';
@@ -23,7 +23,7 @@ let td = document.querySelectorAll('td');
 for (let i = 0; i < td.length; i++) {
     td[i].addEventListener('click', click1);
 }
-let e;
+
 del.addEventListener('click', delClick);
 
 function click1() {
@@ -52,7 +52,7 @@ function click1() {
 }
 
 function checkWinnerX() {
-    let table = document.getElementById('myTable');
+    let table = document.querySelector('#myTable');
     let flag = true;
     for (let k = 0; k < size; k++) {
         for (let i = 0; i < size; i++) {
